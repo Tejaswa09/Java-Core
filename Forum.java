@@ -1,5 +1,8 @@
-class LuLu{
+class Forum{
 	public static void main(String args[]){
+		shopsList();
+	}
+	public static void shopsList(){
 		 String shops[] = {"Zara", "H&M", "Nike", "Adidas", "Puma", "Levi's", 
 		 "Tommy Hilfiger", "Calvin Klein", "Louis Philippe", "Ray-Ban","Starbucks", 
 		 "KFC", "McDonald's", "Domino's", "Burger King", "Subway", "Pizza Hut", 
