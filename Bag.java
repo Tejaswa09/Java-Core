@@ -1,0 +1,10 @@
+class Bag{
+	public static void main(String bag[]){
+	System.out.println("About this Product:Urban Jungle by Safari Cabin Trolley Bag");
+	System.out.println("[Easy Access Front Compartment]: The front-open compartment offers easy access to all your travel essentials with cleverly placed pockets and organisers. while securely housing your laptop (up to 15’’) in a dedicated, padded sleeve, ensuring your device stays safe during travel.");
+	System.out.println("[Lightweight and Durable] : The 100% virgin polycarbonate shell is not just lighter but also stronger, flexing while most shells would crack. The hard shell luggage is designed with reinforced grooves for added strength, and a brushed texture to prevent against scratches. Ideal for frequent travelers who need robust yet lightweight luggage.");
+	System.out.println("[Superior Maneuverability]: Glide effortlessly with our high performance 360° rotation wheels that ensure smooth and quiet movement across any terrain - whether carpet floors or cobbled streets. Our ultra-stable aluminum trolley with multiple height adjustments along with thickened TPE rubber wheels allow for easy maneuverability and maximum comfort");
+	System.out.println("[Organized Storage]: The hardest part of traveling made easier. Maximize your storage capacity with the spacious interior and cleverly placed pockets, which ensure you stay organized on the go. The quick-action compression straps ensure your clothes stay neatly packed. The dedicated power bank pocket links to our integrated USB charging port, ensuring your devices stay charged and you stay connected on the go");
+	System.out.println("[Ultimate Travel Security]: Keep your belongings secure with our built-in, internationally recognized, keyless TSA-approved lock, while the dual-layer, tamper-proof zipper (3x stronger than regular zippers) adds an extra layer of protection against theft. Enjoy complete peace of mind with our comprehensive 5 Year International Warranty that replaces your bag with a brand new piece instead of repairing it. Dimensions:");
+	}
+}
