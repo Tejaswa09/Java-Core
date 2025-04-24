@@ -15,4 +15,15 @@ public class NetflixDTO {
     public String toString() {
         return "NetflixDTO [showTitle=" + showTitle + ", genre=" + genre + ", seasons=" + seasons + ", imdbRating=" + imdbRating + "]";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof NetflixDTO) {
+            NetflixDTO dto = (NetflixDTO) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

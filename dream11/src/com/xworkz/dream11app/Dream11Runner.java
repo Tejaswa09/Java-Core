@@ -7,6 +7,14 @@ public class Dream11Runner {
         dto.setCaptain("MS Dhoni");
         dto.setPoints(350);
         dto.setMatchDate("2025-04-25");
-        System.out.println(dto);
+        //System.out.println(dto);
+
+        Dream11DTO dto1 = new Dream11DTO();
+        dto1.setTeamName("Super Kings");
+        dto1.setCaptain("MS Dhoni");
+        dto1.setPoints(350);
+        dto1.setMatchDate("2025-04-25");
+
+        System.out.println(dto.equals(dto1));
     }
 }

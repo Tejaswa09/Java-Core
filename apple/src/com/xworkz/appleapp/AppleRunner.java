@@ -12,8 +12,18 @@ public class AppleRunner {
         apple.setPassword("Apple@123");
         apple.setConfirmPassword("Apple@123");
         apple.setBirthDate("29/09/2003");
-        System.out.println(apple);
+        //System.out.println(apple);
         AppleRegistration appleRegistration = new AppleRegistration();
         appleRegistration.userRegistered(apple);
+
+        AppleUserDto apple1 = new AppleUserDto();
+        apple.setFirstName("Tejaswa");
+        apple1.setLastName("D");
+        apple1.setAppleId("tejaswa18@apple.com");
+        apple1.setPassword("Apple@123");
+        apple1.setConfirmPassword("Apple@123");
+        apple1.setBirthDate("29/09/2003");
+
+        System.out.println(apple.equals(apple1));
     }
 }

@@ -15,5 +15,13 @@ public class ZomatoRunner {
         ZomatoRegistration registration = new ZomatoRegistration();
         registration.userRegistered(user);
 
+        ZomatoUserDto user1 = new ZomatoUserDto();
+        user1.setFullName("Tejaswa D");
+        user1.setEmail("tejaswa@gmail.com");
+        user1.setPhone("7899455818");
+        user1.setPassword("zomato123");
+
+        System.out.println(user.equals(user1));
+
     }
 }

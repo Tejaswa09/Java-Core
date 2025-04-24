@@ -7,6 +7,14 @@ public class YouTubeRunner {
         dto.setVideoTitle("Top 5 Gadgets 2025");
         dto.setViews(150000);
         dto.setMonetized(true);
-        System.out.println(dto);
+        //System.out.println(dto);
+
+        YouTubeDTO dto1 = new YouTubeDTO();
+        dto1.setChannelName("TechBuzz");
+        dto1.setVideoTitle("Top 5 Gadgets 2025");
+        dto1.setViews(150000);
+        dto1.setMonetized(true);
+
+        System.out.println(dto.equals(dto1));
     }
 }

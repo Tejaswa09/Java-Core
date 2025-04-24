@@ -15,5 +15,13 @@ public class RedditRunner {
         RedditRegistration redditRegistration = new RedditRegistration();
         redditRegistration.userRegistered(reddit);
 //        redditRegistration.getDetails();
+
+        RedditUserDto reddit1 = new RedditUserDto();
+        reddit1.setEmail("tejaswa@gmail.com");
+        reddit1.setUsername("tejaswa123");
+        reddit1.setPassword("tejaswa123");
+        reddit1.setNewsletterSubscription(true);
+
+        System.out.println(reddit.equals(reddit1));
     }
 }

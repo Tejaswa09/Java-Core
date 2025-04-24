@@ -3,6 +3,8 @@ package com.xworkz.moviebooking.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 
@@ -16,7 +18,8 @@ public class MovieBookingDto {
     private String showTime;
     private int numberOfTickets;
     private String seatType;
-//
+
+    //
 //    public String getUserName() {
 //        return userName;
 //    }
@@ -80,16 +83,31 @@ public class MovieBookingDto {
 //    public void setSeatType(String seatType) {
 //        this.seatType = seatType;
 //    }
-@Override
-public String toString() {
-    return "BookingDto(User Name: " + getUserName() + "\n" +
-            "Email: " + getEmail() + "\n" +
-            "Mobile: " + getMobile() + "\n" +
-            "Movie Name: " + getMovieName() + "\n" +
-            "Theatre Name: " + getTheatreName() + "\n" +
-            "Show Time: " + getShowTime() + "\n" +
-            "Number of Tickets: " + getNumberOfTickets() + "\n" +
-            "Seat Type: " + getSeatType() + ")";
-}
+    @Override
+    public String toString() {
+        return "BookingDto(User Name: " + getUserName() + "\n" +
+                "Email: " + getEmail() + "\n" +
+                "Mobile: " + getMobile() + "\n" +
+                "Movie Name: " + getMovieName() + "\n" +
+                "Theatre Name: " + getTheatreName() + "\n" +
+                "Show Time: " + getShowTime() + "\n" +
+                "Number of Tickets: " + getNumberOfTickets() + "\n" +
+                "Seat Type: " + getSeatType() + ")";
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(userName, email, mobile, movieName, theatreName, showTime, numberOfTickets, seatType);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof MovieBookingDto) {
+            MovieBookingDto dto = (MovieBookingDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

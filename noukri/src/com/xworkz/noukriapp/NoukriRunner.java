@@ -18,6 +18,16 @@ public class NoukriRunner {
         NoukriUserRegistration noukri = new NoukriUserRegistration();
         noukri.userRegistration(userDto);
 //        noukri.getUserData();
+
+        NoukriUserDto userDto1 = new NoukriUserDto();
+
+        userDto1.setFullName("Tejaswa");
+        userDto1.setEmail("tejaswad18@gmail.com");
+        userDto1.setPassword("Tejaswa@123");
+        userDto1.setMobileNumber(7899455818L);
+        userDto1.setWorkStatus(WorkStatus.fresher);
+
+        System.out.println(userDto.equals(userDto1));
     }
 
 }

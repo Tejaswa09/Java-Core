@@ -13,10 +13,20 @@ public class FacebookRunner {
         facebook.setPassword("facebook123");
         facebook.setBirthDate("29/09/2003");
         facebook.setGender("Male");
-        System.out.println(facebook);
+        //System.out.println(facebook);
         FacebookRegistration facebookRegistration = new FacebookRegistration();
         facebookRegistration.userRegistered(facebook);
 
 //        facebookRegistration.getDetails();
+
+        FacebookUserDto facebook1 = new FacebookUserDto();
+        facebook1.setFirstName("Tejaswa");
+        facebook1.setLastName("D");
+        facebook1.setEmailOrMobile("tejaswad18.com");
+        facebook1.setPassword("facebook123");
+        facebook1.setBirthDate("29/09/2003");
+        facebook1.setGender("Male");
+
+        System.out.println(facebook.equals(facebook1));
     }
 }

@@ -7,13 +7,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 
 public class PassportDto {
-    private CpvLocation cpvLocation ;
+    private CpvLocation cpvLocation;
     private DcdrLocation dcdrLocation;
     private String givenName;
     private String surName;
@@ -26,6 +28,7 @@ public class PassportDto {
     private String hintQues;
     private String hintAns;
     private String captcha;
+
     @Override
     public String toString() {
         return "UserDetailsDto(CPV Location: " + getCpvLocation() + "\n" +
@@ -43,5 +46,20 @@ public class PassportDto {
                 "Captcha: " + getCaptcha() + ")";
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(cpvLocation, dcdrLocation, givenName, surName, dob, email, emailLoginSame, loginId, pwd, confirmPwd, hintQues, hintAns, captcha);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof PassportDto) {
+            PassportDto dto = (PassportDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

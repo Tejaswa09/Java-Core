@@ -21,5 +21,20 @@ public class GmailRunner {
         System.out.println(gmail);
         GmailRegistration gmailRegistration = new GmailRegistration();
         gmailRegistration.userRegistered(gmail);
+
+        GmailUserDto gaimail1 = new GmailUserDto();
+        gaimail1.setFirstName("Tejaswa");
+        gaimail1.setLastName("D");
+        gaimail1.setUsername("tejaswad18");
+        gaimail1.setPassword("Tejaswa@123");
+        gaimail1.setConfirmPassword("Tejaswa@123");
+        gaimail1.setRecoveryEmail("tejaswad18@gaimail1.com");
+        gaimail1.setPhoneNumber("7899455818");
+        gaimail1.setBirthDay("29");
+        gaimail1.setBirthMonth("September");
+        gaimail1.setBirthYear("2003");
+        gaimail1.setGender(Gender.Male);
+
+        System.out.println(gmail.equals(gaimail1));
     }
 }

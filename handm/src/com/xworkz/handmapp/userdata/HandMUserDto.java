@@ -3,17 +3,18 @@ package com.xworkz.handmapp.userdata;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 
 public class HandMUserDto {
-    private String email
-            ;
-    private String password ;
-    private String dob ;
-    private boolean isAcceptedTerm ;
+    private String email;
+    private String password;
+    private String dob;
+    private boolean isAcceptedTerm;
 
-//    public void setEmail(String email){
+    //    public void setEmail(String email){
 //        this.email = email ;
 //
 //    }
@@ -46,12 +47,27 @@ public class HandMUserDto {
 //    public boolean getAcceptedTerm(){
 //        return isAcceptedTerm;
 //    }
-@Override
-public String toString() {
-    return "UserDto(Email: " + getEmail() + "\n" +
-            "Password: " + getPassword() + "\n" +
-            "Date of Birth: " + getDob() + "\n" +
-            "Accepted Terms: " + isAcceptedTerm() + ")";
-}
+    @Override
+    public String toString() {
+        return "UserDto(Email: " + getEmail() + "\n" +
+                "Password: " + getPassword() + "\n" +
+                "Date of Birth: " + getDob() + "\n" +
+                "Accepted Terms: " + isAcceptedTerm() + ")";
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(email, password, dob, isAcceptedTerm);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof HandMUserDto) {
+            HandMUserDto dto = (HandMUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

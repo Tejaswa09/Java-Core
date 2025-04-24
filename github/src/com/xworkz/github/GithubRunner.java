@@ -13,6 +13,14 @@ public class GithubRunner {
         gitDto.setCountry(Country.India);
         System.out.println(gitDto);
 
+        GIthubDto gitDto1 =new GIthubDto();
+        gitDto1.setEmail("tejaswad18@gmail.com");
+        gitDto1.setUsername("tejaswa09");
+        gitDto1.setPassword("GIt");
+        gitDto1.setCountry(Country.India);
+
+        System.out.println(gitDto.equals(gitDto1));
+
         GItUserRegistration git = new GItUserRegistration();
 
         git.userRegistration(gitDto);

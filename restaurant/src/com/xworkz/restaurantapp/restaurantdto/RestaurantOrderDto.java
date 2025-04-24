@@ -4,7 +4,10 @@ import com.xworkz.restaurantapp.constants.PaymentMethod;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter@Setter
+import java.util.Objects;
+
+@Getter
+@Setter
 
 public class RestaurantOrderDto {
 
@@ -15,7 +18,7 @@ public class RestaurantOrderDto {
     private double totalAmount;
     private PaymentMethod paymentMethod;
 
-//    public void setCustomerName(String customerName) {
+    //    public void setCustomerName(String customerName) {
 //        this.customerName = customerName;
 //    }
 //
@@ -62,15 +65,30 @@ public class RestaurantOrderDto {
 //    public PaymentMethod getPaymentMethod() {
 //        return paymentMethod;
 //    }
-@Override
-public String toString() {
-    return "RestaurantOrderDto(Customer Name: " + getCustomerName() + "\n" +
-            "Table Number: " + getTableNumber() + "\n" +
-            "Dish Name: " + getDishName() + "\n" +
-            "Servings: " + getServings() + "\n" +
-            "Total Amount: " + getTotalAmount() + "\n" +
-            "Payment Method: " + getPaymentMethod() + ")";
-}
+    @Override
+    public String toString() {
+        return "RestaurantOrderDto(Customer Name: " + getCustomerName() + "\n" +
+                "Table Number: " + getTableNumber() + "\n" +
+                "Dish Name: " + getDishName() + "\n" +
+                "Servings: " + getServings() + "\n" +
+                "Total Amount: " + getTotalAmount() + "\n" +
+                "Payment Method: " + getPaymentMethod() + ")";
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(customerName, tableNumber, dishName, servings, totalAmount, paymentMethod);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof RestaurantOrderDto) {
+            RestaurantOrderDto dto = (RestaurantOrderDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 

@@ -14,5 +14,14 @@ public class HandMRunner {
         System.out.println(handm);
         HandMUserRegistration handmreg = new HandMUserRegistration();
         handmreg.registration(handm);
+
+        HandMUserDto handm1 = new HandMUserDto();
+
+        handm1.setEmail("tejaswad18@gmail.com");
+        handm1.setDob("29/09/2003");
+        handm1.setPassword("Teja123");
+        handm1.setAcceptedTerm(true);
+
+        System.out.println(handm.equals(handm1));
     }
 }

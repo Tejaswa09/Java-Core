@@ -19,5 +19,17 @@ public class MaxRunner {
 
         MaxFashionRegistration maxFashionRegistration = new MaxFashionRegistration();
         maxFashionRegistration.userRegistered(max);
+
+        MaxUserDto max1 = new MaxUserDto();
+        max1.setFullName("Tejaswa D");
+        max1.setDob("29/09/2003");
+        max1.setEmail("tejaswad28@gmail.com");
+        max1.setPincode(584128);
+        max1.setGender(Gender.Male);
+        max1.setMobileNumber(7899455818L);
+        max1.setPincode(6622);
+        max1.setPassword("Teja@123");
+
+        System.out.println(max.equals(max1));
     }
 }

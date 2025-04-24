@@ -4,6 +4,8 @@ import com.xworkz.salesforceapp.statics.Country;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 
@@ -81,6 +83,22 @@ public class SalesforceUserDto {
                 "Number of Employees: " + getNoOfEmployees() + "\n" +
                 "Mobile Number: " + getMobileNumber() + "\n" +
                 "Country: " + getCountry() + ")";
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, jobTitle, email, noOfEmployees, mobileNumber, country);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof SalesforceUserDto) {
+            SalesforceUserDto dto = (SalesforceUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

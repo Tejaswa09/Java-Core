@@ -3,6 +3,8 @@ package com.xworkz.appleapp.appleuserdata;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 
@@ -15,7 +17,7 @@ public class AppleUserDto {
     private String confirmPassword;
     private String birthDate;
 
-//    public void setFirstName(String firstName) {
+    //    public void setFirstName(String firstName) {
 //        this.firstName = firstName;
 //    }
 //    public String getFirstName() {
@@ -51,14 +53,29 @@ public class AppleUserDto {
 //    public String getBirthDate() {
 //        return birthDate;
 //    }
-@Override
-public String toString() {
-    return "AppleUserDto(First Name: " + getFirstName() + "\n" +
-            "Last Name: " + getLastName() + "\n" +
-            "Apple ID: " + getAppleId() + "\n" +
-            "Password: " + getPassword() + "\n" +
-            "Confirm Password: " + getConfirmPassword() + "\n" +
-            "Birth Date: " + getBirthDate() + ")";
-}
+    @Override
+    public String toString() {
+        return "AppleUserDto(First Name: " + getFirstName() + "\n" +
+                "Last Name: " + getLastName() + "\n" +
+                "Apple ID: " + getAppleId() + "\n" +
+                "Password: " + getPassword() + "\n" +
+                "Confirm Password: " + getConfirmPassword() + "\n" +
+                "Birth Date: " + getBirthDate() + ")";
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, appleId, password, confirmPassword, birthDate);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof AppleUserDto) {
+            AppleUserDto dto = (AppleUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

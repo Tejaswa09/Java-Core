@@ -3,6 +3,8 @@ package com.xworkz.dominosapp.dominosuserdata;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 
@@ -53,4 +55,19 @@ public class DominosUserDto {
                 "Delivery Address: " + getDeliveryAddress() + ")";
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(mobileNumber, name, email, password, deliveryAddress);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof DominosUserDto) {
+            DominosUserDto dto = (DominosUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

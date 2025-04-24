@@ -3,6 +3,8 @@ package com.xworkz.lenovoapp.lenovouserdata;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 
@@ -14,7 +16,7 @@ public class LenovoUserDto {
     private String country;
     private boolean subscribeToNewsletter;
 
-//    // Getters and Setters
+    //    // Getters and Setters
 //    public void setEmail(String email) {
 //        this.email = email;
 //    }
@@ -51,14 +53,29 @@ public class LenovoUserDto {
 //    public boolean isSubscribeToNewsletter() {
 //        return subscribeToNewsletter;
 //    }
-@Override
-public String toString() {
-    return "UserProfileDto(First Name: " + getFirstName() + "\n" +
-            "Last Name: " + getLastName() + "\n" +
-            "Email: " + getEmail() + "\n" +
-            "Password: " + getPassword() + "\n" +
-            "Country: " + getCountry() + "\n" +
-            "Subscribed to Newsletter: " + isSubscribeToNewsletter() + ")";
-}
+    @Override
+    public String toString() {
+        return "UserProfileDto(First Name: " + getFirstName() + "\n" +
+                "Last Name: " + getLastName() + "\n" +
+                "Email: " + getEmail() + "\n" +
+                "Password: " + getPassword() + "\n" +
+                "Country: " + getCountry() + "\n" +
+                "Subscribed to Newsletter: " + isSubscribeToNewsletter() + ")";
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(email, password, firstName, lastName, country, subscribeToNewsletter);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof LenovoUserDto) {
+            LenovoUserDto dto = (LenovoUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

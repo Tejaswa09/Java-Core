@@ -3,6 +3,8 @@ package com.xworkz.blinkitapp.blinkituserdata;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 
@@ -51,4 +53,19 @@ public String toString() {
             "Terms Accepted: " + isTermsAccepted() + ")";
 }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(phoneNumber, name, password, termsAccepted);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof BlinkitUserDto) {
+            BlinkitUserDto dto = (BlinkitUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

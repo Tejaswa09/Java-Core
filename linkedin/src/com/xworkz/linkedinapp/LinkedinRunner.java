@@ -21,5 +21,17 @@ public class LinkedinRunner {
         user.registerUser(userDto);
         user.getUserDetails();
 
+        LinkedinUserDto userDto1 = new LinkedinUserDto();
+        userDto1.setFirstName("Tejaswa");
+        userDto1.setLastName("D");
+        userDto1.setDay(29);
+        userDto1.setMonth(9);
+        userDto1.setYear(2003);
+        userDto1.setUserName("Tejaswa");
+        userDto1.setPassword("Teja123");
+        userDto1.setGender(Gender.Male);
+
+        System.out.println(userDto.equals(userDto1));
+
     }
 }

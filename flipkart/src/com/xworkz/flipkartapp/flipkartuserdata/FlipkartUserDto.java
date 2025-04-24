@@ -3,6 +3,8 @@ package com.xworkz.flipkartapp.flipkartuserdata;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 
@@ -61,4 +63,19 @@ public String toString() {
             "Confirm Password: " + getConfirmPassword() + ")";
 }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(enterMobileNumber, fullName, emailId, password, confirmPassword);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof FlipkartUserDto) {
+            FlipkartUserDto dto = (FlipkartUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

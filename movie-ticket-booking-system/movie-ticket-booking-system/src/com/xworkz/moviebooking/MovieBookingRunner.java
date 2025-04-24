@@ -24,5 +24,17 @@ public class MovieBookingRunner {
         MovieBooking booking = new MovieBooking();
         booking.bookTicket(dto);
         booking.getDetails();
+
+        MovieBookingDto dto1 = new MovieBookingDto();
+        dto1.setUserName("Akhil Raj");
+        dto1.setEmail("akhilraj@gmail.com");
+        dto1.setMobile("9876543210");
+        dto1.setMovieName("Interstellar");
+        dto1.setTheatreName("PVR Koramangala");
+        dto1.setShowTime("07:00 PM");
+        dto1.setNumberOfTickets(2);
+        dto1.setSeatType("Gold");
+
+        System.out.println(dto.equals(dto1));
     }
 }

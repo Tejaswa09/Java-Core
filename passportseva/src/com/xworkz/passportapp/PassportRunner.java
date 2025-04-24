@@ -27,5 +27,22 @@ public class PassportRunner {
         PassportSeva passportseva=new PassportSeva();
         passportseva.userRegisterd(passportdto);
 
+        PassportDto passportdto1=new PassportDto();
+        passportdto1.setCpvLocation(CpvLocation.Bangalore);
+        passportdto1.setDcdrLocation(DcdrLocation.Bangalore);
+        passportdto1.setGivenName("Tejaswa");
+        passportdto1.setSurName("sDunaboyina");
+        passportdto1.setDob("29/09/2003");
+        passportdto1.setEmail("tejaswad18@gmail.com");
+        passportdto1.setEmailLoginSame(true);
+        passportdto1.setLoginId("tejaswad18@gmail.com");
+        passportdto1.setPwd("Tejaswa@123");
+        passportdto1.setConfirmPwd("Tejaswa@123");
+        passportdto1.setHintQues("question");
+        passportdto1.setHintAns("answer");
+        passportdto1.setCaptcha("AB7123");
+
+        System.out.println(passportdto.equals(passportdto1));
+
     }
 }

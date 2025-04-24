@@ -4,6 +4,8 @@ import com.xworkz.fitnessapp.constants.FitnessGoal;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 public class FitnessUserProfileDto {
@@ -82,4 +84,19 @@ public String toString() {
             "Preferred Workout Time: " + getPreferredWorkoutTime() + ")";
 }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(userName, email, age, weight, height, goal, preferredWorkoutTime);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof FitnessUserProfileDto) {
+            FitnessUserProfileDto dto = (FitnessUserProfileDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

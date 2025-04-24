@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Objects;
+
 @Getter
 @Setter
 
@@ -62,4 +64,19 @@ public String toString() {
             "Gender: " + getGender() + ")";
 }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, emailOrMobile, password, birthDate, gender);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof FacebookUserDto) {
+            FacebookUserDto dto = (FacebookUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -4,6 +4,8 @@ import com.xworkz.yahooapp.statics.Gender;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter@Setter
 
 public class YahooUserDto {
@@ -85,4 +87,19 @@ public String toString() {
             "Gender: " + getGender() + ")";
 }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, yahooId, password, mobileNumber, birthMonth, birthDay, birthYear, gender);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof YahooUserDto) {
+            YahooUserDto dto = (YahooUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

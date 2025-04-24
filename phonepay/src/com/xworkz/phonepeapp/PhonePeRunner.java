@@ -7,6 +7,13 @@ public class PhonePeRunner {
         dto.setAmount(1500.75);
         dto.setReceiver("Ramesh");
         dto.setTransactionDate("2025-04-23");
-        System.out.println(dto);
+        //System.out.println(dto);
+
+        PhonePeDTO dto1 = new PhonePeDTO();
+        dto1.setTransactionId("TXN12345");
+        dto1.setAmount(1500.75);
+        dto1.setReceiver("Ramesh");
+        dto1.setTransactionDate("2025-04-23");
+        System.out.println(dto.equals(dto1));
     }
 }

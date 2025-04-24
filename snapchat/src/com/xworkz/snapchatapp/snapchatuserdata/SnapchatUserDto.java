@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.DayOfWeek;
+import java.util.Objects;
+
 @Getter
 @Setter
 
@@ -82,4 +84,19 @@ public class SnapchatUserDto {
                 "Password: " + getPassword() + ")";
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, year, day, month, userName, password);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof SnapchatUserDto) {
+            SnapchatUserDto dto = (SnapchatUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

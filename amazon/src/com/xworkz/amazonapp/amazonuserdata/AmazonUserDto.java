@@ -19,7 +19,7 @@ public class AmazonUserDto {
     private String birthDay;
     private Gender gender;
 
-//    public void setName(String name) {
+    //    public void setName(String name) {
 //        this.name = name;
 //    }
 //
@@ -66,14 +66,23 @@ public class AmazonUserDto {
 //    public Gender getGender() {
 //        return gender;
 //    }
-@Override
-public String toString() {
-    return "UserDto(Name: " + getName() + "\n" +
-            "Mobile Number: " + getMobileNumber() + "\n" +
-            "Password: " + getPassword() + "\n" +
-            "Email: " + getEmail() + "\n" +
-            "Birth Day: " + getBirthDay() + "\n" +
-            "Gender: " + getGender() + ")";
-}
-
+    @Override
+    public String toString() {
+        return "UserDto(Name: " + getName() + "\n" +
+                "Mobile Number: " + getMobileNumber() + "\n" +
+                "Password: " + getPassword() + "\n" +
+                "Email: " + getEmail() + "\n" +
+                "Birth Day: " + getBirthDay() + "\n" +
+                "Gender: " + getGender() + ")";
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof AmazonUserDto) {
+            AmazonUserDto dto = (AmazonUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

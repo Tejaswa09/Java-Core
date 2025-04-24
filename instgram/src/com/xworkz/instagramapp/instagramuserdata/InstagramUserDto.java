@@ -3,6 +3,8 @@ package com.xworkz.instagramapp.instagramuserdata;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 
@@ -12,7 +14,7 @@ public class InstagramUserDto {
     private String username;
     private String password;
 
-//    public void setEmailOrPhone(String emailOrPhone) {
+    //    public void setEmailOrPhone(String emailOrPhone) {
 //        this.emailOrPhone = emailOrPhone;
 //    }
 //    public String getEmailOrPhone() {
@@ -36,12 +38,27 @@ public class InstagramUserDto {
 //    public String getPassword() {
 //        return password;
 //    }
-@Override
-public String toString() {
-    return "UserDto(Full Name: " + getFullName() + "\n" +
-            "Username: " + getUsername() + "\n" +
-            "Email or Phone: " + getEmailOrPhone() + "\n" +
-            "Password: " + getPassword() + ")";
-}
+    @Override
+    public String toString() {
+        return "UserDto(Full Name: " + getFullName() + "\n" +
+                "Username: " + getUsername() + "\n" +
+                "Email or Phone: " + getEmailOrPhone() + "\n" +
+                "Password: " + getPassword() + ")";
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(emailOrPhone, fullName, username, password);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof InstagramUserDto) {
+            InstagramUserDto dto = (InstagramUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

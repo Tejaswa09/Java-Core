@@ -3,6 +3,8 @@ package com.xworkz.redditapp.reddituserdata;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 
@@ -12,7 +14,7 @@ public class RedditUserDto {
     private String password;
     private boolean newsletterSubscription;
 
-//    // Getters and Setters
+    //    // Getters and Setters
 //    public void setEmail(String email) {
 //        this.email = email;
 //    }
@@ -37,12 +39,27 @@ public class RedditUserDto {
 //    public boolean isNewsletterSubscription() {
 //        return newsletterSubscription;
 //    }
-@Override
-public String toString() {
-    return "UserSubscriptionDto(Email: " + getEmail() + "\n" +
-            "Username: " + getUsername() + "\n" +
-            "Password: " + getPassword() + "\n" +
-            "Newsletter Subscription: " + isNewsletterSubscription() + ")";
-}
+    @Override
+    public String toString() {
+        return "UserSubscriptionDto(Email: " + getEmail() + "\n" +
+                "Username: " + getUsername() + "\n" +
+                "Password: " + getPassword() + "\n" +
+                "Newsletter Subscription: " + isNewsletterSubscription() + ")";
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(email, username, password, newsletterSubscription);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof RedditUserDto) {
+            RedditUserDto dto = (RedditUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

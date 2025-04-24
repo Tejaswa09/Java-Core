@@ -7,6 +7,14 @@ public class SnapdealRunner {
         dto.setDiscount(25.0);
         dto.setAvailableQuantity(50);
         dto.setSellerName("Best Electronics");
-        System.out.println(dto);
+
+        SnapdealDTO dto1 = new SnapdealDTO();
+        dto1.setProductName("Smartphone");
+        dto1.setDiscount(25.0);
+        dto1.setAvailableQuantity(50);
+        dto1.setSellerName("Best Electronics");
+
+        System.out.println(dto.equals(dto1));
+        //System.out.println(dto);
     }
 }

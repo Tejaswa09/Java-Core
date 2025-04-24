@@ -17,5 +17,15 @@ public class LenovoRunner {
         LenovoRegistration lenovoRegistration = new LenovoRegistration();
         lenovoRegistration.userRegistered(lenovo);
         //lenovoRegistration.getDetails();
+
+        LenovoUserDto lennovo1 = new LenovoUserDto();
+        lennovo1.setEmail("tejaswad18@gmail.com");
+        lennovo1.setPassword("lennovo1@123");
+        lennovo1.setFirstName("Tejaswa");
+        lennovo1.setLastName("D");
+        lennovo1.setCountry("India");
+        lennovo1.setSubscribeToNewsletter(true);
+
+        System.out.println(lenovo.equals(lennovo1));
     }
 }

@@ -4,20 +4,22 @@ import com.xworkz.maxapp.statics.Gender;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 
 public class MaxUserDto {
-    private String fullName ;
-    private long mobileNumber ;
-    private String email ;
-    private String password ;
-    private String dob ;
-    private Gender gender ;
-    private int pincode ;
-    private int otp ;
+    private String fullName;
+    private long mobileNumber;
+    private String email;
+    private String password;
+    private String dob;
+    private Gender gender;
+    private int pincode;
+    private int otp;
 
-//    public void setFullName(String fullName){
+    //    public void setFullName(String fullName){
 //        this.fullName = fullName ;
 //    }
 //
@@ -79,16 +81,31 @@ public class MaxUserDto {
 //    public int getOtp(){
 //        return otp ;
 //    }
-@Override
-public String toString() {
-    return "UserDto(Full Name: " + getFullName() + "\n" +
-            "Mobile Number: " + getMobileNumber() + "\n" +
-            "Email: " + getEmail() + "\n" +
-            "Password: " + getPassword() + "\n" +
-            "Date of Birth: " + getDob() + "\n" +
-            "Gender: " + getGender() + "\n" +
-            "Pincode: " + getPincode() + "\n" +
-            "OTP: " + getOtp() + ")";
-}
+    @Override
+    public String toString() {
+        return "UserDto(Full Name: " + getFullName() + "\n" +
+                "Mobile Number: " + getMobileNumber() + "\n" +
+                "Email: " + getEmail() + "\n" +
+                "Password: " + getPassword() + "\n" +
+                "Date of Birth: " + getDob() + "\n" +
+                "Gender: " + getGender() + "\n" +
+                "Pincode: " + getPincode() + "\n" +
+                "OTP: " + getOtp() + ")";
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName, mobileNumber, email, password, dob, gender, pincode, otp);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof MaxUserDto) {
+            MaxUserDto dto = (MaxUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

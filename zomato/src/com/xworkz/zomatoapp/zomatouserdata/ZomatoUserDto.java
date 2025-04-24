@@ -3,6 +3,8 @@ package com.xworkz.zomatoapp.zomatouserdata;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter@Setter
 public class ZomatoUserDto {
     private String fullName;
@@ -43,4 +45,19 @@ public class ZomatoUserDto {
                 "Password: " + getPassword() + ")";
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName, email, phone, password);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof ZomatoUserDto) {
+            ZomatoUserDto dto = (ZomatoUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -3,6 +3,8 @@ package com.xworkz.titanapp.titanuserdata;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Setter
 @Getter
 
@@ -12,7 +14,7 @@ public class TitanUserDto {
     private String email;
     private String password;
 
-//    // Getters and Setters
+    //    // Getters and Setters
 //    public void setName(String name) {
 //        this.name = name;
 //    }
@@ -37,13 +39,31 @@ public class TitanUserDto {
 //    public String getPassword() {
 //        return password;
 //    }
-@Override
-public String toString() {
-    return "UserDto(Name: " + getName() + "\n" +
-            "Mobile Number: " + getMobileNumber() + "\n" +
-            "Email: " + getEmail() + "\n" +
-            "Password: " + getPassword() + ")";
-}
+    @Override
+    public String toString() {
+        return "UserDto(Name: " + getName() + "\n" +
+                "Mobile Number: " + getMobileNumber() + "\n" +
+                "Email: " + getEmail() + "\n" +
+                "Password: " + getPassword() + ")";
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, mobileNumber, email, password);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof TitanUserDto) {
+            TitanUserDto dto = (TitanUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        TitanUserDto dto = (TitanUserDto) obj;
+        System.out.println(this.hashCode());
+        System.out.println(obj.hashCode());
+        return false;
+    }
 
 }

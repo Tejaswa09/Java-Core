@@ -4,6 +4,8 @@ import com.xworkz.gmailapp.statics.Gender;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 
@@ -102,4 +104,19 @@ public class GmailUserDto {
                 "Gender: " + getGender() + ")";
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, username, password, confirmPassword, recoveryEmail, phoneNumber, birthDay, birthMonth, birthYear, gender);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof GmailUserDto) {
+            GmailUserDto dto = (GmailUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

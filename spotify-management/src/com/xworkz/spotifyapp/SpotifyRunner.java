@@ -19,6 +19,15 @@ public class SpotifyRunner {
         songLinkedList.addSongToLikedList(songsDto);
         songLinkedList.getSongList();
 
+        SongsDto songsDto1 = new SongsDto();
+
+        songsDto1.setSongName("All Star ");
+        songsDto1.setArtist("SZA");
+        songsDto1.setDuration(120);
+        songsDto1.setSongLikedList(false);
+
+        System.out.println(songsDto1.equals(songsDto1));
+
 
     }
 

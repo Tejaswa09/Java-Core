@@ -4,21 +4,23 @@ import com.xworkz.linkedinapp.statics.Gender;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 
 public class LinkedinUserDto {
 
-        private String firstName;
-        private String lastName;
-        private int year;
-        private int day ;
-        private int month ;
-        private String userName ;
-        private String password;
-        private Gender gender ;
+    private String firstName;
+    private String lastName;
+    private int year;
+    private int day;
+    private int month;
+    private String userName;
+    private String password;
+    private Gender gender;
 
-//        public void setFirstName(String firstName){
+    //        public void setFirstName(String firstName){
 //            this.firstName= firstName;
 //        }
 //
@@ -81,8 +83,8 @@ public class LinkedinUserDto {
 //        public Gender getGender(){
 //            return gender;
 //        }
-@Override
-public String toString() {
+    @Override
+    public String toString() {
         return "UserDetailsDto(First Name: " + getFirstName() + "\n" +
                 "Last Name: " + getLastName() + "\n" +
                 "Year: " + getYear() + "\n" +
@@ -91,6 +93,21 @@ public String toString() {
                 "Username: " + getUserName() + "\n" +
                 "Password: " + getPassword() + "\n" +
                 "Gender: " + getGender() + ")";
-}
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, year, day, month, userName, password, gender);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof LinkedinUserDto) {
+            LinkedinUserDto dto = (LinkedinUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -3,7 +3,10 @@ package com.xworkz.zeptoapp.zeptouserdata;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter@Getter
+import java.util.Objects;
+
+@Setter
+@Getter
 
 public class ZeptoUserDto {
     private String phoneNumber;
@@ -13,7 +16,7 @@ public class ZeptoUserDto {
     private String referralCode;
     private boolean termsAccepted;
 
-//    public void setPhoneNumber(String phoneNumber) {
+    //    public void setPhoneNumber(String phoneNumber) {
 //        this.phoneNumber = phoneNumber;
 //    }
 //
@@ -60,14 +63,30 @@ public class ZeptoUserDto {
 //    public boolean isTermsAccepted() {
 //        return termsAccepted;
 //    }
-@Override
-public String toString() {
-    return "UserDto(Name: " + getName() + "\n" +
-            "Phone Number: " + getPhoneNumber() + "\n" +
-            "Email: " + getEmail() + "\n" +
-            "Password: " + getPassword() + "\n" +
-            "Referral Code: " + getReferralCode() + "\n" +
-            "Terms Accepted: " + isTermsAccepted() + ")";
-}
+    @Override
+    public String toString() {
+        return "UserDto(Name: " + getName() + "\n" +
+                "Phone Number: " + getPhoneNumber() + "\n" +
+                "Email: " + getEmail() + "\n" +
+                "Password: " + getPassword() + "\n" +
+                "Referral Code: " + getReferralCode() + "\n" +
+                "Terms Accepted: " + isTermsAccepted() + ")";
+    }
 
+    @Override
+    public int hashCode() {
+    
+        return Objects.hash(phoneNumber, name, email, password, referralCode, termsAccepted);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof ZeptoUserDto) {
+            ZeptoUserDto dto = (ZeptoUserDto) obj;
+            if (this.hashCode() == dto.hashCode()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
